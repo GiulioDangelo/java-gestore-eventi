@@ -56,6 +56,8 @@ public class Main {
                 System.out.println("Formato data non valido. Inserire una data nel formato yyyy-MM-dd.");
             } catch (NumberFormatException e) {
                 System.out.println("Input non valido. Assicurati di inserire un numero.");
+            } catch (IllegalArgumentException  e) {
+                System.out.println(e.getMessage());
             }
 
             System.out.println("vuoi creare un nuovo evento? y/n");
