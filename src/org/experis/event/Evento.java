@@ -83,16 +83,4 @@ public class Evento {
         return "Evento{" + "titolo='" + titolo + '\'' + ", dataEvento=" + dataEvento + '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Evento evento = (Evento) o;
-        return Objects.equals(dataEvento, evento.dataEvento);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(dataEvento);
-    }
 }
