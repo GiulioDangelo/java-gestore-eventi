@@ -49,8 +49,9 @@ public class Main {
                     lista.aggiungiEvento(evento);
                     lista.listaFormattata();
                 } else {
-                    System.out.println("Programma terminato");
+                    System.out.println("****************");
                 }
+
             } catch (DateTimeParseException e) {
                 System.out.println("Formato data non valido. Inserire una data nel formato yyyy-MM-dd.");
             } catch (NumberFormatException e) {
@@ -59,6 +60,5 @@ public class Main {
 
             System.out.println("vuoi creare un nuovo evento? y/n");
         } while (scan.nextLine().equalsIgnoreCase("y"));
-
     }
 }
