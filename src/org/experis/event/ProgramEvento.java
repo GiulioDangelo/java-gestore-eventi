@@ -1,8 +1,8 @@
 package org.experis.event;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.Collections;
 
 public class ProgramEvento {
     private String title;
@@ -33,10 +33,16 @@ public class ProgramEvento {
         lista.clear();
     }
 
-    public void listaFormattata(){
+    public void listaOrdinata(){
+        Collections.sort(this.lista, new Comparator<Evento>() {
+            @Override
+            public int compare(Evento o1, Evento o2) {
+                return o1.getDataEvento().compareTo(o2.getDataEvento());
+            }
+        });
+
         for (Evento evento : lista) {
-            System.out.println(evento.dataEvento + " - " + evento.getTitolo() + "\n");
+            System.out.println(evento.getDataEvento() + " - " + evento.getTitolo() + "\n");
         }
     }
-
 }

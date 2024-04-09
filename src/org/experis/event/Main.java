@@ -47,7 +47,7 @@ public class Main {
                 String risposta = scan.nextLine().toLowerCase();
                 if (Objects.equals(risposta,"y")){
                     lista.aggiungiEvento(evento);
-                    lista.listaFormattata();
+                    lista.listaOrdinata();
                 } else {
                     System.out.println("****************");
                 }
