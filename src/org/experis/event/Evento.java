@@ -8,9 +8,12 @@ public class Evento {
     LocalDate dataEvento;
 
     public Evento(String titolo, int capienzaMassima, LocalDate dataEvento) throws IllegalArgumentException {
+        if (titolo == null || titolo.isEmpty()) {
+            throw new IllegalArgumentException("Il titolo dell'evento non puo' essere vuoto");
+        }
         this.titolo = titolo;
 
-        if (capienzaMassima < 0) {
+        if (capienzaMassima <= 0) {
             throw new IllegalArgumentException("La capienza massima deve essere maggiore o uguale a 0");
         }
         this.capienzaMassima = capienzaMassima;
@@ -25,7 +28,7 @@ public class Evento {
     }
 
     public void prenotaPosti(int postiDaPrenotare) throws IllegalArgumentException {
-        if (postiDaPrenotare + postiPrenotati > capienzaMassima || postiDaPrenotare < 1) {
+        if (postiDaPrenotare + postiPrenotati > capienzaMassima || postiDaPrenotare < 0) {
             throw new IllegalArgumentException("Non ci sono abbastanza posti disponibili per prenotare o hai inserito un numero di posti non valido");
         }
 
@@ -37,7 +40,7 @@ public class Evento {
     }
 
     public void disdiciPosti(int postiDaDisdire) throws IllegalArgumentException {
-        if (postiDaDisdire > postiPrenotati || postiDaDisdire < 1) {
+        if (postiDaDisdire > postiPrenotati || postiDaDisdire < 0) {
             throw new IllegalArgumentException("Non ci sono abbastanza posti prenotati per disdire o hai inserito un numero di posti non valido");
         }
 
